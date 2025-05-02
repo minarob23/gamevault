@@ -547,7 +547,7 @@ const AdminPanel = () => {
                       />
                       <div className={styles.gameDetails}>
                         <span className={styles.gameName}>{game.name}</span>
-                        <span className={styles.gamePrice}>{game.price}</span>
+                        <span style={{ color: '#4CAF50', fontWeight: 'bold' }}>${game.price}</span>
                         <span
                           className={`${styles.stockStatus} ${styles.inStock}`}
                         >
