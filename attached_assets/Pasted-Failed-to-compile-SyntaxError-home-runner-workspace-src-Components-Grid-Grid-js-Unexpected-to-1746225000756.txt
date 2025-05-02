@@ -1,0 +1,37 @@
+Failed to compile.
+
+SyntaxError: /home/runner/workspace/src/Components/Grid/Grid.js: Unexpected token, expected "," (71:16)
+  69 |                     hoverState={hoverState}
+  70 |                   />
+> 71 |                 }
+     |                 ^
+  72 |                 return null;
+  73 |             }) : shownGames && shownGames.map((game, i) => {
+  74 |                 return <Card 
+ERROR in ./src/Components/Grid/Grid.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/runner/workspace/src/Components/Grid/Grid.js: Unexpected token, expected "," (71:16)
+
+  69 |                     hoverState={hoverState}
+  70 |                   />
+> 71 |                 }
+     |                 ^
+  72 |                 return null;
+  73 |             }) : shownGames && shownGames.map((game, i) => {
+  74 |                 return <Card 
+    at instantiate (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:72:32)
+    at constructor (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:359:12)
+    at Parser.raise (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:3339:19)
+    at Parser.unexpected (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:3377:16)
+    at Parser.expect (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:4006:28)
+    at Parser.parseParenAndDistinguishExpression (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:13387:14)
+    at Parser.parseParenAndDistinguishExpression (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:6718:18)
+    at Parser.parseExprAtom (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:12976:23)
+    at Parser.parseExprAtom (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:8039:20)
+    at Parser.parseExprSubscripts (/home/runner/workspace/node_modules/@babel/parser/lib/index.js:12648:23)
+
+ERROR in [eslint] 
+src/Components/Grid/Grid.js
+  Line 71:16:  Parsing error: Unexpected token, expected "," (71:16)
+
+webpack compiled with 2 errors
