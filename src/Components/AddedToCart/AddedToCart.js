@@ -3,10 +3,10 @@ import React from 'react';
 import { ReactComponent as Added } from "../../Resources/image/added.svg";
 import AnimatedCard from '../../Containers/AnimatedPage/AnimatedCard';
 
-const AddedToCart = props => {
-    const {
-        game
-    } = props;
+const AddedToCart = ({ handleClose }) => {
+    //const {
+    //    game
+    //} = props;
 
     return (
         <AnimatedCard>
@@ -17,5 +17,5 @@ const AddedToCart = props => {
         </AnimatedCard>
     );
   }
-  
+
   export default AddedToCart;

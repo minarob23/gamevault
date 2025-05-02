@@ -1,10 +1,9 @@
 import styles from './Browse.module.css';
 import React, { useEffect, useState } from 'react';
 import NavBar from '../../Components/NavBar/NavBar';
+// eslint-disable-next-line
 import { useNavigate } from 'react-router-dom';
 import AnimatedPage from '../AnimatedPage/AnimatedPage';
-import { ReactComponent as Grids } from "../../Resources/image/grid.svg";
-import { ReactComponent as Columns } from "../../Resources/image/columns.svg";
 import Filters from '../../Components/Filters/Filters';
 import Grid from '../../Components/Grid/Grid';
 import Cart from '../../Components/Cart/Cart';
@@ -24,6 +23,7 @@ const Browse = props => {
           setReviewDisplay,
           reviewDisplay,
           allGames,
+          // eslint-disable-next-line
           setAllGames,
           handleLike,
           handleHoverGame,
@@ -47,24 +47,16 @@ const Browse = props => {
           openGamePage
         } = props;
 
-    const navigate = useNavigate();
-    const [landingPage, setLandingPage] = useState(false);
-    const [grid, setGrid] = useState(true);
-  const [chatbotOpen, setChatbotOpen] = useState(false);
+    // eslint-disable-next-line
+    const [grid] = useState(true);
+    const [chatbotOpen, setChatbotOpen] = useState(false);
 
-    const handleLayoutSwitch = (e) => {
-      if (e.target.id == "grid") {
-        setGrid(true);
-      } else {
-        setGrid(false);
-      }
-    }
 
     useEffect(() => {
-      if (currentFilter == "none") {
+      if (currentFilter === "none") {
         setShownGames(allGames.filter(game => !game.isHidden));
 
-      } else if (currentFilter != "Ratings" && currentFilter != "Reviews" && currentFilter != "Wishlist") {
+      } else if (currentFilter !== "Ratings" && currentFilter !== "Reviews" && currentFilter !== "Wishlist") {
           let filteredShownGames = allGames.filter(game => game.genre === currentFilter);
           setShownGames(filteredShownGames);
 
@@ -85,10 +77,10 @@ const Browse = props => {
           setShownGames(filteredShownGames);
       }
 
-      if (currentFilter != "Reviews") {
+      if (currentFilter !== "Reviews") {
           setReviewDisplay(false);
       }
-    }, [currentFilter])
+    }, [currentFilter, allGames, setShownGames, setReviewDisplay]);
 
     useEffect(() => {
       if (cartDisplayed) {
@@ -96,20 +88,19 @@ const Browse = props => {
       } else {
         document.body.style.overflow = "scroll";
       }
-    }, [cartDisplayed])
+    }, [cartDisplayed]);
 
     useEffect(() => {
       let unhoveredState = hoverState.map((element, i) => {
         if (i >= 25) {
-          return
-        } else {
-             element.hovered = false;
-             return element;
+          return element;
         }
+        element.hovered = false;
+        return element;
       });
 
       setHoverState(unhoveredState);
-    }, []);
+    }, [hoverState, setHoverState]);
 
     return (
       <section className={styles.Browse} style={{ maxHeight: cartDisplayed ? "100vh" : "1000vh", minHeight: "100vh" }}>
@@ -132,7 +123,7 @@ const Browse = props => {
           handleBrowse={handleBrowse}
           handleHome={handleHome}
           browsing={browsing}
-          landingPage={landingPage}
+          landingPage={false}
           cartAmount={cartAmount}
           search={search}
           searching={searching}

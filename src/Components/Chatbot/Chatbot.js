@@ -82,13 +82,31 @@ const Chatbot = ({ isOpen, onClose }) => {
     if (!input.trim()) return;
 
     const userMessage = input;
-    setMessages(prev => [...prev, { text: userMessage, sender: 'user' }]);
+    setMessages(prev => {
+      const newMessages = [...prev, { text: userMessage, sender: 'user' }];
+      setTimeout(() => {
+        const messagesDiv = document.querySelector(`.${styles.messages}`);
+        if (messagesDiv) {
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+      }, 100);
+      return newMessages;
+    });
     setInput('');
 
     try {
       const response = await generateResponse(userMessage);
       if (response) {
-        setMessages(prev => [...prev, { text: response, sender: 'bot' }]);
+        setMessages(prev => {
+          const newMessages = [...prev, { text: response, sender: 'bot' }];
+          setTimeout(() => {
+            const messagesDiv = document.querySelector(`.${styles.messages}`);
+            if (messagesDiv) {
+              messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+          }, 100);
+          return newMessages;
+        });
       } else if (error) {
         setMessages(prev => [...prev, { text: error, sender: 'bot', isError: true }]);
       }

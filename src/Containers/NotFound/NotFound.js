@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
 import Cart from '../../Components/Cart/Cart';
-import AnimatedHome from '../AnimatedPage/AnimatedHome';
 import { motion } from "framer-motion";
 
 const NotFound = props => {
@@ -42,7 +41,7 @@ const progress = {
 
 useEffect(() => {
   setTimeout(handleBrowse, 6800);
-}, [])
+}, [handleBrowse])
 
     return (
       <div className={styles.notFound}>
@@ -84,9 +83,9 @@ useEffect(() => {
                 </div>
                 <motion.div className={styles.progressBar} variants={progress} initial="initial" animate="animate"></motion.div>
             </motion.div>
-    
+
       </div>
     );
   }
-  
+
   export default NotFound;

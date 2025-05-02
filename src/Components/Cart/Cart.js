@@ -1,5 +1,5 @@
 import styles from "./Cart.module.css";
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as Right } from "../../Resources/image/arrowRight.svg";
 import { ReactComponent as Cross } from "../../Resources/image/cross.svg";
 import { motion } from "framer-motion";
@@ -9,9 +9,7 @@ const Cart = (props) => {
     const {
         cartAmount,
         cart,
-        handleOpenCart,
         handleCloseCart,
-        cartDisplayed,
         handleHover,
         hoverState,
         clearCart,

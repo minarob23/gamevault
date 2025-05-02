@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminPanel.module.css";
 import defaultGames from "../../utils/games";
@@ -197,6 +196,15 @@ const AdminPanel = () => {
   const handleDelete = (gameId) => {
     const gameName = allGames.find((game) => game.id === gameId)?.name;
     try {
+      // Get current cart
+      const currentCart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const gameInCart = currentCart.some(item => item.id === gameId);
+
+      if (gameInCart) {
+        showToast(`Cannot delete ${gameName} while it's in cart`);
+        return;
+      }
+
       const updatedGames = allGames.filter((game) => game.id !== gameId);
       localStorage.setItem("games", JSON.stringify(updatedGames));
       setAllGames(updatedGames);
@@ -238,6 +246,29 @@ const AdminPanel = () => {
   const generateReport = () => {
     setShowReportModal(true);
   };
+
+  const handleRemoveFromCart = (gameId) => {
+    const game = allGames.find(g => g.id === gameId);
+    // Get current cart
+    const currentCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const filteredCart = currentCart.filter(item => item.id !== gameId);
+
+    // Update cart in localStorage
+    localStorage.setItem('cart', JSON.stringify(filteredCart));
+
+    // Update game state
+    const updatedGames = allGames.map(game => {
+      if (game.id === gameId) {
+        return { ...game, inCart: false, inStock: false };
+      }
+      return game;
+    });
+
+    setAllGames(updatedGames);
+    localStorage.setItem('games', JSON.stringify(updatedGames));
+    showToast(`${game.name} removed from cart and marked as out of stock`);
+  };
+
 
   if (!isAuthenticated) return null;
 
@@ -807,6 +838,11 @@ const AdminPanel = () => {
                         <button onClick={() => handleDelete(game.id)}>
                           Delete
                         </button>
+                        {game.inCart && (
+                          <button onClick={() => handleRemoveFromCart(game.id)}>
+                            Remove from Cart
+                          </button>
+                        )}
                         <button
                           onClick={() => {
                             const updatedGames = allGames.map((g) =>

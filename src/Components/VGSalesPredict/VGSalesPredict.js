@@ -88,7 +88,7 @@ const VGSalesPredict = () => {
     } catch (error) {
       console.error("Error:", error);
       setErrors({
-        submit: "Connection failed. Please check your network and try again.",
+        submit: "Unable to fetch Prediction Service. Please try again.",
       });
     }
   };

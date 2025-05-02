@@ -3,11 +3,8 @@ import React from 'react';
 import { ReactComponent as Added } from "../../Resources/image/added.svg";
 import AnimatedCard from '../../Containers/AnimatedPage/AnimatedCard';
 
-const AddedToCartBig = props => {
-    const {
-        game
-    } = props;
-
+const AddedToCartBig = ({ handleClose }) => {
+    
     return (
         <AnimatedCard>
             <div className={styles.addToCart}>
@@ -17,5 +14,5 @@ const AddedToCartBig = props => {
         </AnimatedCard>
     );
   }
-  
+
   export default AddedToCartBig;

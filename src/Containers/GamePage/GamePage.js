@@ -1,15 +1,11 @@
 import styles from './GamePage.module.css';
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from 'react';
 import AnimatedGamePage from '../AnimatedPage/AnimatedGamePage';
 import NavBar from '../../Components/NavBar/NavBar';
 import { ReactComponent as Arrow } from "../../Resources/image/arrow.svg";
 import { ReactComponent as Up } from "../../Resources/image/up.svg";
-import { ReactComponent as Down } from "../../Resources/image/down.svg";
 import { ReactComponent as Like } from "../../Resources/image/like.svg";
 import Slider from '../../Components/Slider/Slider';
-import games from '../../utils/games';
 import AnimatedText from '../AnimatedPage/AnimatedText';
 import { ReactComponent as Add } from "../../Resources/image/add.svg";
 import AddedToCartBig from '../../Components/AddedToCart/AddedToCartBig';
@@ -47,8 +43,6 @@ const GamePage = props => {
     openGamePage
   } = props;
 
-  let { gameId } = useParams();
-  const location = useLocation();
   const [carouselState, setCarouselState] = useState(0);
 
   const incrementCarousel = (e) => {
@@ -159,7 +153,7 @@ const GamePage = props => {
                       >
                         <AnimatedText>
                              <div className={textExtended ? styles.open : styles.closed}>
-                                 <a href={selectedGame ? selectedGame.link : templateGame.link} target="_blank">{selectedGame ? selectedGame.name : "No"} Website</a>
+                                 <a href={selectedGame ? selectedGame.link : templateGame.link} target="_blank" rel="noreferrer">{selectedGame ? selectedGame.name : "No"} Website</a>
                                  <h4>Released: {selectedGame ? selectedGame.release : templateGame.release}</h4>
                                  <h4>Platforms: {selectedGame ? selectedGame.platforms : templateGame.platforms}</h4>
                                  <h4>Main Genre: {selectedGame ? selectedGame.genre : templateGame.genre}</h4>

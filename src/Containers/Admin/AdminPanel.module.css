@@ -387,6 +387,42 @@
   margin-bottom: 1rem;
 }
 
+.basicInfo::-webkit-scrollbar,
+.mediaSection::-webkit-scrollbar {
+  width: 8px;
+}
+
+.basicInfo::-webkit-scrollbar-track,
+.mediaSection::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.basicInfo::-webkit-scrollbar-thumb,
+.mediaSection::-webkit-scrollbar-thumb {
+  background: #92f;
+  border-radius: 4px;
+}
+
+.adminPanel {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.adminPanel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.adminPanel::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.adminPanel::-webkit-scrollbar-thumb {
+  background: #92f;
+  border-radius: 4px;
+}
+
 .basicInfo h3,
 .mediaSection h3 {
   font-size: 1.4rem;
