@@ -46,8 +46,9 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
         link.href = canvas.toDataURL('image/png');
         link.click();
         onClose();
-      } catch (error) {
-        console.error("Error generating report:", error);
+      }
+    } catch (error) {
+      console.error("Error generating report:", error);
     }
   };
 
