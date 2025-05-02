@@ -34,7 +34,7 @@ const Filters = props => {
                >
                  <button 
                    className={styles.filterBtn} 
-                   style={{ backgroundColor: (hoverState && hoverState[8] && hoverState[8].hovered || currentFilter === "Wishlist") ? "#fff" : "#2d2d2d" }}
+                   style={{ backgroundColor: ((hoverState?.[8]?.hovered) || currentFilter === "Wishlist") ? "#fff" : "#2d2d2d" }}
                    aria-label="Open wishlist"
                  >
                      <Wishlist 

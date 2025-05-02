@@ -86,6 +86,10 @@ export default function Browse({
                 setActiveView={setActiveView}
                 activeSorting={activeSorting}
                 setActiveSorting={setActiveSorting}
+                hoverState={hoverState || {}}
+                handleHover={handleHover}
+                handleSelect={handleSelectGame}
+                currentFilter={activeFilter}
               />
 
               <div className={styles.list}>
