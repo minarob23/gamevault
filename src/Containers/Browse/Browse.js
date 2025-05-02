@@ -104,6 +104,7 @@ export default function Browse({
                   openGamePage={openGamePage}
                   cartDisplayed={cartDisplayed}
                   cart={cart}
+                  shownGames={cart}
                 />
               </div>
             </div>
