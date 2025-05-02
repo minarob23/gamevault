@@ -537,6 +537,15 @@ const AdminPanel = () => {
               </div>
             ) : editingGame?.type === "notification" ? (
               <div className={styles.notificationList}>
+                <button 
+                  className={styles.closeButton} 
+                  onClick={() => {
+                    setEditingGame(null);
+                    setShowModal(false);
+                  }}
+                >
+                  ✕
+                </button>
                 {editingGame.items.length > 0 ? (
                   editingGame.items.map((game) => (
                     <div key={game.id} className={styles.notificationItem}>
@@ -559,15 +568,7 @@ const AdminPanel = () => {
                 ) : (
                   <p>No new stocked items available</p>
                 )}
-                <button
-                  onClick={() => {
-                    setEditingGame(null);
-                    setShowModal(false);
-                  }}
-                  className={styles.cancelButton}
-                >
-                  Close
-                </button>
+                
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.gameForm}>
