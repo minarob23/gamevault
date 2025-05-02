@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import styles from "./ReportModal.module.css";
 import { jsPDF } from "jspdf";
@@ -9,26 +10,69 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
 
   const handleSaveReport = async () => {
     try {
-      const pdf = new jsPDF("p", "mm", "a4");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "pt",
+        format: "a4"
+      });
 
       const contentToCapture = document.getElementById(
-        activeTab === "admin" ? "adminPreview" : "analyticsRef",
+        activeTab === "admin" ? "adminPreview" : "analyticsRef"
       );
+
       if (contentToCapture) {
         const canvas = await html2canvas(contentToCapture, {
           scale: 2,
-          backgroundColor: "#ffffff",
-          logging: false,
           useCORS: true,
+          allowTaint: true,
+          logging: true,
+          windowWidth: contentToCapture.scrollWidth,
+          windowHeight: contentToCapture.scrollHeight,
+          onclone: (clonedDoc) => {
+            const element = clonedDoc.getElementById(
+              activeTab === "admin" ? "adminPreview" : "analyticsRef"
+            );
+            if (element) {
+              element.style.height = 'auto';
+              element.style.width = '100%';
+              element.style.position = 'relative';
+              element.style.overflow = 'visible';
+            }
+          }
         });
-        const imgData = canvas.toDataURL("image/png");
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const aspectRatio = canvas.width / canvas.height;
+        
+        let totalPages = Math.ceil(canvas.height / canvas.width);
+        let currentPosition = 0;
+
+        for (let i = 0; i < totalPages; i++) {
+          if (i > 0) {
+            pdf.addPage();
+          }
+
+          const remainingHeight = canvas.height - currentPosition;
+          const heightToPrint = Math.min(canvas.width / aspectRatio, remainingHeight);
+
+          pdf.addImage(
+            canvas,
+            'PNG',
+            0,
+            i === 0 ? 0 : -currentPosition,
+            pageWidth,
+            (canvas.height * pageWidth) / canvas.width,
+            null,
+            'FAST'
+          );
+
+          currentPosition += heightToPrint;
+        }
       }
 
       pdf.save(
-        `${activeTab}_report_${new Date().toISOString().split("T")[0]}.pdf`,
+        `${activeTab}_report_${new Date().toISOString().split("T")[0]}.pdf`
       );
       onClose();
     } catch (error) {
