@@ -111,9 +111,14 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
               {allGames.map((game) => (
                 <tr key={game.id}>
                   <td>{game.name}</td>
-                  <td>{game.price}</td>
+                  <td style={{ color: '#4CAF50', fontWeight: 'bold' }}>{game.price}</td>
                   <td>{game.genre || "N/A"}</td>
-                  <td>{game.inStock ? "In Stock" : "Out of Stock"}</td>
+                  <td style={{ 
+                    color: game.inStock ? '#4CAF50' : '#f44336',
+                    fontWeight: 'bold'
+                  }}>
+                    {game.inStock ? "In Stock" : "Out of Stock"}
+                  </td>
                 </tr>
               ))}
             </tbody>
