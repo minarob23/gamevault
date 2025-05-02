@@ -1,8 +1,7 @@
+
 import styles from './Grid.module.css';
 import React, { useEffect } from 'react';
 import Card from '../Card/Card';
-// import AnimatedPage from '../../Containers/AnimatedPage/AnimatedPage';
-// import { v4 as uuidv4 } from 'uuid';
 
 const Grid = props => {
     const {
@@ -58,8 +57,21 @@ const Grid = props => {
               <h3>You can add some, soon.</h3>
           </div>
           <div className={styles.gridContainer} style={{ display: reviewDisplay ? "none" : "grid" }} id="gridContainer">
-            {!searching && shownGames && shownGames.map((game, i) => (
+            {!searching ? 
+              (shownGames && shownGames.map((game) => (
                 <Card 
+                  game={game} 
+                  key={game.name} 
+                  handleLike={handleLike} 
+                  handleHoverGame={handleHoverGame} 
+                  handleAddToCart={handleAddToCart} 
+                  handleSelectGame={handleSelectGame}
+                  hoverState={hoverState}
+                />
+              ))) : 
+              (shownGames && shownGames.map((game) => (
+                game.name.toLowerCase().includes(search.toLowerCase()) ? (
+                  <Card 
                     game={game} 
                     key={game.name} 
                     handleLike={handleLike} 
@@ -68,35 +80,12 @@ const Grid = props => {
                     handleSelectGame={handleSelectGame}
                     hoverState={hoverState}
                   />
-                }
-                return null;
-            }) : shownGames && shownGames.map((game, i) => {
-                return <Card 
-                         game={game} 
-                         key={game.name} 
-                         handleLike={handleLike} 
-                         handleHoverGame={handleHoverGame} 
-                         handleAddToCart={handleAddToCart} 
-                         handleSelectGame={handleSelectGame}
-                         hoverState={hoverState}
-                       />
-            }) : shownGames && shownGames.map((game, i) => {
-                if (game.name.toLowerCase().includes(search.toLowerCase())) {
-                    return <Card 
-                             game={game} 
-                             key={game.name} 
-                             handleLike={handleLike} 
-                             handleHoverGame={handleHoverGame} 
-                             handleAddToCart={handleAddToCart} 
-                             handleSelectGame={handleSelectGame}
-                             hoverState={hoverState}
-                           />
-                }
-                return null;
-            })}
+                ) : null
+              )))
+            }
           </div>
     </>
     );
-  }
+}
 
-  export default Grid;
+export default Grid;
