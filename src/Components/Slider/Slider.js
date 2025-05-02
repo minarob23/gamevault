@@ -1,5 +1,5 @@
 import styles from './Slider.module.css';
-import React, { useEffect, useState } from 'react'; // Added useState
+import React, { useEffect, useState } from 'react'; 
 import { useLocation } from 'react-router-dom';
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
@@ -18,11 +18,11 @@ const Slider = props => {
 
   const slideRef = React.createRef();
   const location = useLocation();
-  const [selectedGameIndex, setSelectedGameIndex] = useState(null); // Added state for index
+  const [selectedGameIndex, setSelectedGameIndex] = useState(null); 
 
   useEffect(() => {
     const index = allGames.findIndex(game => "/game-ecommerce-store/games/" + game.surname === location.pathname);
-    setSelectedGameIndex(index); // Set index in state
+    setSelectedGameIndex(index); 
   }, [allGames, location.pathname]);
 
   useEffect(() => {
@@ -41,21 +41,21 @@ const Slider = props => {
     easing: "ease"
   };
 
-  const slideImages = selectedGame && selectedGame.footage ? selectedGame.footage.slice(0,4) : []; //Null check and limit to 4 images.
+  const slideImages = selectedGame && selectedGame.footage ? selectedGame.footage.slice(0,4) : []; 
 
-  const templateImages = templateGame.footage.slice(0,4); //Limit to 4 images
+  const templateImages = templateGame.footage && templateGame.footage.length ? templateGame.footage.slice(0,4) : []; 
 
 
   const back = () => {
     let newIndex = carouselState > 0 ? carouselState - 1 : 3;
     setCarouselState(newIndex);
-    slideRef.current.goTo(newIndex); // Directly go to index instead of goBack()
+    slideRef.current.goTo(newIndex); 
   }
 
   const next = () => {
     let newIndex = carouselState < 3 ? carouselState + 1 : 0;
     setCarouselState(newIndex);
-    slideRef.current.goTo(newIndex); // Directly go to index instead of goNext()
+    slideRef.current.goTo(newIndex); 
   }
 
   const jumpToIndex = (e) => {
