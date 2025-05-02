@@ -53,34 +53,30 @@ const Browse = props => {
 
 
     useEffect(() => {
-      if (currentFilter === "none") {
-        setShownGames(allGames.filter(game => !game.isHidden));
-
-      } else if (currentFilter !== "Ratings" && currentFilter !== "Reviews" && currentFilter !== "Wishlist") {
-          let filteredShownGames = allGames.filter(game => game.genre === currentFilter);
-          setShownGames(filteredShownGames);
-
-      } else if (currentFilter === "Ratings") {
-          let filteredShownGames = allGames.filter(game => game.isLiked === true);
-          filteredShownGames = filteredShownGames.sort(function(a, b) {
-            return b.rating - a.rating;
-          })
-          setShownGames(filteredShownGames);
-
-      } else if (currentFilter === "Reviews") {
-          let filteredShownGames = allGames.filter(game => game.reviewAdded === true);
-          setShownGames(filteredShownGames);
+      const filterGames = () => {
+        if (currentFilter === "none") {
+          return allGames.filter(game => !game.isHidden);
+        } 
+        if (currentFilter === "Ratings") {
+          const filtered = allGames.filter(game => game.isLiked === true);
+          return filtered.sort((a, b) => b.rating - a.rating);
+        }
+        if (currentFilter === "Reviews") {
           setReviewDisplay(true);
-
-      } else if (currentFilter === "Wishlist") {
-          let filteredShownGames = allGames.filter(game => game.isLiked === true);
-          setShownGames(filteredShownGames);
-      }
+          return allGames.filter(game => game.reviewAdded === true);
+        }
+        if (currentFilter === "Wishlist") {
+          return allGames.filter(game => game.isLiked === true);
+        }
+        return allGames.filter(game => game.genre === currentFilter);
+      };
 
       if (currentFilter !== "Reviews") {
-          setReviewDisplay(false);
+        setReviewDisplay(false);
       }
-    }, [currentFilter, allGames, setShownGames, setReviewDisplay]);
+      
+      setShownGames(filterGames());
+    }, [currentFilter, allGames]);
 
     useEffect(() => {
       if (cartDisplayed) {
