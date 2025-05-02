@@ -11,7 +11,7 @@ const GameStoreAuth = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(false); // For animation
-  const navto = useNavigate();
+  
 
   // Create floating particles with random positions and animations
   const particles = Array(10).fill().map((_, index) => ({

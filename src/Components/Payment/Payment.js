@@ -7,7 +7,7 @@ const Payment = ({ total = 0, cart = [] }) => {
   const [cvv, setCvv] = useState('');
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [showRating, setShowRating] = useState(false);
-  const [rating, setRating] = useState(0);
+  
   const [feedback, setFeedback] = useState('');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
