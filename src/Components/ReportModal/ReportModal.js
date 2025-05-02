@@ -42,7 +42,6 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
         });
 
         const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
         const aspectRatio = canvas.width / canvas.height;
         
         let totalPages = Math.ceil(canvas.height / canvas.width);
