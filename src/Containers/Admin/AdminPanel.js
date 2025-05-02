@@ -22,6 +22,8 @@ const AdminPanel = () => {
   const [cartDisplayed, setCartDisplayed] = useState(false);
   const [showWishlisted, setShowWishlisted] = useState(false);
   const [showReviewed, setShowReviewed] = useState(false);
+const [showToast, setShowToast] = useState(false);
+const [toastMessage, setToastMessage] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedColumn, setSelectedColumn] = useState("name");
 
@@ -879,6 +881,21 @@ const AdminPanel = () => {
                           style={{
                             backgroundColor: game.isLiked ? "#9C27B0" : "",
                           }}
+                          onClick={() => {
+                            const updatedGames = allGames.map((g) =>
+                              g.id === game.id
+                                ? { ...g, isLiked: !g.isLiked }
+                                : g,
+                            );
+                            setAllGames(updatedGames);
+                            localStorage.setItem(
+                              "games",
+                              JSON.stringify(updatedGames),
+                            );
+                            setToastMessage(game.isLiked ? "Removed from wishlist" : "Added to wishlist");
+                            setShowToast(true);
+                            setTimeout(() => setShowToast(false), 2000);
+                          }}
                         >
                           {game.isLiked
                             ? "Remove from Wishlist"
@@ -894,8 +911,13 @@ const AdminPanel = () => {
                           onClick={() => {
                             if (game.reviewAdded) {
                               handleRemoveReview(game.id);
+                              setToastMessage("Review removed");
                             } else {
                               handleAddReview(game.id);
+                              setToastMessage("Review added");
+                            }
+                            setShowToast(true);
+                            setTimeout(() => setShowToast(false), 2000);
                             }
                             const updatedGames = allGames.map((g) =>
                               g.id === game.id
@@ -925,6 +947,11 @@ const AdminPanel = () => {
           adminDashboardRef={adminDashboardRef}
           allGames={allGames}
         />
+      )}
+    {showToast && (
+        <div className={styles.toast}>
+          {toastMessage}
+        </div>
       )}
     </div>
   );
