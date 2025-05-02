@@ -25,7 +25,6 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
 
       if (contentToCapture) {
         // Set fixed dimensions for better capture
-        const originalStyle = window.getComputedStyle(contentToCapture);
         const originalHeight = contentToCapture.style.height;
         const originalWidth = contentToCapture.style.width;
         
