@@ -76,7 +76,7 @@ const Browse = props => {
       }
       
       setShownGames(filterGames());
-    }, [currentFilter, allGames]);
+    }, [currentFilter, allGames, setReviewDisplay]);
 
     useEffect(() => {
       if (cartDisplayed) {
@@ -87,16 +87,14 @@ const Browse = props => {
     }, [cartDisplayed]);
 
     useEffect(() => {
-      let unhoveredState = hoverState.map((element, i) => {
-        if (i >= 25) {
-          return element;
-        }
-        element.hovered = false;
-        return element;
-      });
-
-      setHoverState(unhoveredState);
-    }, [hoverState, setHoverState]);
+      const resetHoverStates = () => {
+        return hoverState.map((element, i) => {
+          if (i >= 25) return element;
+          return { ...element, hovered: false };
+        });
+      };
+      setHoverState(resetHoverStates());
+    }, []); // Run only once on mount
 
     return (
       <section className={styles.Browse} style={{ maxHeight: cartDisplayed ? "100vh" : "1000vh", minHeight: "100vh" }}>
