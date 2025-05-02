@@ -10,6 +10,9 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
 
   const handleSaveReport = async () => {
     try {
+      // Wait for charts to render
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "pt",
@@ -21,11 +24,19 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
       );
 
       if (contentToCapture) {
+        // Set fixed dimensions for better capture
+        const originalStyle = window.getComputedStyle(contentToCapture);
+        const originalHeight = contentToCapture.style.height;
+        const originalWidth = contentToCapture.style.width;
+        
+        contentToCapture.style.width = `${contentToCapture.scrollWidth}px`;
+        contentToCapture.style.height = `${contentToCapture.scrollHeight}px`;
+
         const canvas = await html2canvas(contentToCapture, {
           scale: 2,
           useCORS: true,
           allowTaint: true,
-          logging: true,
+          logging: false,
           windowWidth: contentToCapture.scrollWidth,
           windowHeight: contentToCapture.scrollHeight,
           onclone: (clonedDoc) => {
@@ -33,13 +44,22 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
               activeTab === "admin" ? "adminPreview" : "analyticsRef"
             );
             if (element) {
-              element.style.height = 'auto';
               element.style.width = '100%';
+              element.style.height = 'auto';
+              element.style.maxHeight = 'none';
               element.style.position = 'relative';
               element.style.overflow = 'visible';
+              Array.from(element.getElementsByTagName('canvas')).forEach(canvas => {
+                canvas.style.maxWidth = 'none';
+                canvas.style.maxHeight = 'none';
+              });
             }
           }
         });
+
+        // Restore original dimensions
+        contentToCapture.style.height = originalHeight;
+        contentToCapture.style.width = originalWidth;
 
         const pageWidth = pdf.internal.pageSize.getWidth();
         const aspectRatio = canvas.width / canvas.height;
