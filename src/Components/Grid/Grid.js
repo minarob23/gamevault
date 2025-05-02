@@ -58,7 +58,7 @@ const Grid = props => {
               <h3>You can add some, soon.</h3>
           </div>
           <div className={styles.gridContainer} style={{ display: reviewDisplay ? "none" : "grid" }} id="gridContainer">
-            {searching === false ? cartDisplayed ? (shownGames || []).map((game, i) => {
+            {searching === false ? cartDisplayed ? shownGames && shownGames.map((game, i) => {
                 if (i <= 7) {
                     return <Card 
                     game={game} 
