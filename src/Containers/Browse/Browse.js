@@ -76,6 +76,7 @@ const Browse = props => {
       }
       
       setShownGames(filterGames());
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentFilter, allGames, setReviewDisplay]);
 
     useEffect(() => {
@@ -94,6 +95,7 @@ const Browse = props => {
         });
       };
       setHoverState(resetHoverStates());
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Run only once on mount
 
     return (
