@@ -15,7 +15,7 @@ export default function Browse({
   handleHome, 
   cart = [],
   cartAmount = 0,
-  cartDisplayed = false,
+  cartDisplayed,
   handleOpenCart,
   handleCloseCart,
   clearCart,
@@ -102,6 +102,8 @@ export default function Browse({
                   handleLike={handleLike}
                   setHoverState={setHoverState}
                   openGamePage={openGamePage}
+                  cartDisplayed={cartDisplayed}
+                  cart={cart}
                 />
               </div>
             </div>
