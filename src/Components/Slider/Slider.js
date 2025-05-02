@@ -1,5 +1,5 @@
 import styles from './Slider.module.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'; // Added useState
 import { useLocation } from 'react-router-dom';
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
@@ -18,11 +18,19 @@ const Slider = props => {
 
   const slideRef = React.createRef();
   const location = useLocation();
+  const [selectedGameIndex, setSelectedGameIndex] = useState(null); // Added state for index
 
   useEffect(() => {
-    const selectedGameIndex = allGames.findIndex(game => "/game-ecommerce-store/games/" + game.surname === location.pathname);
-    setSelectedGame(allGames[selectedGameIndex]);
-  }, [allGames, location.pathname, setSelectedGame]); 
+    const index = allGames.findIndex(game => "/game-ecommerce-store/games/" + game.surname === location.pathname);
+    setSelectedGameIndex(index); // Set index in state
+  }, [allGames, location.pathname]);
+
+  useEffect(() => {
+    if (selectedGameIndex !== null && allGames && allGames[selectedGameIndex]) {
+      setSelectedGame(allGames[selectedGameIndex]);
+    }
+  }, [selectedGameIndex, allGames, setSelectedGame]);
+
 
   const properties = {
     duration: 6000,
@@ -33,42 +41,25 @@ const Slider = props => {
     easing: "ease"
   };
 
-  const slideImages = [
-    selectedGame ? selectedGame.footage[0] : null,
-    selectedGame ? selectedGame.footage[1] : null,
-    selectedGame ? selectedGame.footage[2] : null,
-    selectedGame ? selectedGame.footage[3] : null,
-  ];
+  const slideImages = selectedGame && selectedGame.footage ? selectedGame.footage.slice(0,4) : []; //Null check and limit to 4 images.
 
-  const templateImages = [
-    templateGame.footage[0],
-    templateGame.footage[1],
-    templateGame.footage[2],
-    templateGame.footage[3]
-  ]
+  const templateImages = templateGame.footage.slice(0,4); //Limit to 4 images
+
 
   const back = () => {
-    if (carouselState > 0) {
-      setCarouselState(carouselState - 1);
-    } else {
-      setCarouselState(3);
-    }
-    slideRef.current.goBack();
+    let newIndex = carouselState > 0 ? carouselState - 1 : 3;
+    setCarouselState(newIndex);
+    slideRef.current.goTo(newIndex); // Directly go to index instead of goBack()
   }
 
   const next = () => {
-    if (carouselState < 3) {
-      setCarouselState(carouselState + 1);
-    } else {
-      setCarouselState(0);
-    }
-    slideRef.current.goNext();
+    let newIndex = carouselState < 3 ? carouselState + 1 : 0;
+    setCarouselState(newIndex);
+    slideRef.current.goTo(newIndex); // Directly go to index instead of goNext()
   }
 
   const jumpToIndex = (e) => {
-    console.log(e.target.id);
-    let index = parseInt(e.target.id);
-    console.log(index);
+    const index = parseInt(e.target.id);
     setCarouselState(index);
     slideRef.current.goTo(index);
   }
@@ -76,7 +67,7 @@ const Slider = props => {
   return (
         <div className={styles.slider}>
           <Slide ref={slideRef} {...properties}>
-            {selectedGame ? slideImages.map((each, index) => (
+            {(selectedGame && slideImages.length > 0) ? slideImages.map((each, index) => (
               <div 
                 key={index} 
                 className={styles.slide}
@@ -109,7 +100,7 @@ const Slider = props => {
               onMouseLeave={handleHover} 
               aria-label="Previous Picture"
             >
-                <svg className={styles.left} style={{ fill: hoverState[22].hovered ? "#fff" : "#ccc" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className={styles.left} style={{ fill: hoverState[22]?.hovered ? "#fff" : "#ccc" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             </button>
@@ -121,7 +112,7 @@ const Slider = props => {
               onMouseLeave={handleHover} 
               aria-label="Next Picture"
             >
-                <svg className={styles.right} style={{ fill: hoverState[23].hovered ? "#fff" : "#ccc" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className={styles.right} style={{ fill: hoverState[23]?.hovered ? "#fff" : "#ccc" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             </button>

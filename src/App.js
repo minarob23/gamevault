@@ -350,11 +350,10 @@ useEffect(() => {
 
   if (location.pathname !== "/game-ecommerce-store/browse") {
     document.body.style.overflow = "hidden";
-
   } else if (location.pathname === "/game-ecommerce-store/browse") {
     document.body.style.overflow = "scroll";
   }
-}, [location.pathname])
+}, [location.pathname, setOverlap, setBrowsing])
 
 const handleOpenCart = () => {
   setCartDisplayed(true);
