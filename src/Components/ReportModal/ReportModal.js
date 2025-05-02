@@ -10,47 +10,21 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
   const handleSaveReport = async () => {
     try {
       const pdf = new jsPDF("p", "mm", "a4");
-      
+
       const contentToCapture = document.getElementById(
         activeTab === "admin" ? "adminPreview" : "analyticsRef",
       );
-      
       if (contentToCapture) {
         const canvas = await html2canvas(contentToCapture, {
           scale: 2,
           backgroundColor: "#ffffff",
           logging: false,
           useCORS: true,
-          allowTaint: true,
-          foreignObjectRendering: true,
-          onclone: (clonedDoc) => {
-            const charts = clonedDoc.getElementsByTagName('canvas');
-            Array.from(charts).forEach(chart => {
-              chart.style.width = '100%';
-              chart.style.height = 'auto';
-            });
-          }
         });
-
-        // Calculate dimensions to fit content on A4
-        const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
-        const aspectRatio = canvas.width / canvas.height;
-        
-        let imgWidth = pageWidth - 20; // 10mm margins
-        let imgHeight = imgWidth / aspectRatio;
-
-        // If content is too tall, scale it down
-        if (imgHeight > pageHeight - 20) {
-          imgHeight = pageHeight - 20;
-          imgWidth = imgHeight * aspectRatio;
-        }
-
-        // Center the image
-        const x = (pageWidth - imgWidth) / 2;
-        const y = (pageHeight - imgHeight) / 2;
-
-        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', x, y, imgWidth, imgHeight);
+        const imgData = canvas.toDataURL("image/png");
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
       }
 
       pdf.save(
