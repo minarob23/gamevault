@@ -10,13 +10,13 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
 
   const handleSaveReport = async () => {
     try {
-      // Wait for charts to fully render
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Wait for charts to render
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "pt",
-        format: [1200, 1600]
+        format: "a4"
       });
 
       const contentToCapture = document.getElementById(
@@ -24,28 +24,20 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
       );
 
       if (contentToCapture) {
-        // Cache current scroll position
-        const scrollPos = window.scrollY;
+        // Set fixed dimensions for better capture
+        const originalHeight = contentToCapture.style.height;
+        const originalWidth = contentToCapture.style.width;
         
-        // Prepare element for capture
-        const prevStyle = contentToCapture.style.cssText;
-        contentToCapture.style.cssText = `
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 1200px;
-          height: auto;
-          transform: none;
-          background: white;
-        `;
+        contentToCapture.style.width = `${contentToCapture.scrollWidth}px`;
+        contentToCapture.style.height = `${contentToCapture.scrollHeight}px`;
 
         const canvas = await html2canvas(contentToCapture, {
           scale: 2,
           useCORS: true,
           allowTaint: true,
           logging: false,
-          width: 1200,
-          height: contentToCapture.scrollHeight,
+          windowWidth: contentToCapture.scrollWidth,
+          windowHeight: contentToCapture.scrollHeight,
           onclone: (clonedDoc) => {
             const element = clonedDoc.getElementById(
               activeTab === "admin" ? "adminPreview" : "analyticsRef"
@@ -64,27 +56,36 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
           }
         });
 
-        // Restore original state
-        contentToCapture.style.cssText = prevStyle;
-        window.scrollTo(0, scrollPos);
+        // Restore original dimensions
+        contentToCapture.style.height = originalHeight;
+        contentToCapture.style.width = originalWidth;
 
-        const imgData = canvas.toDataURL('image/jpeg', 1.0);
-        const imgWidth = pdf.internal.pageSize.getWidth();
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const aspectRatio = canvas.width / canvas.height;
+        
+        let totalPages = Math.ceil(canvas.height / canvas.width);
+        let currentPosition = 0;
 
-        let heightLeft = imgHeight;
-        let position = 0;
-        let page = 1;
+        for (let i = 0; i < totalPages; i++) {
+          if (i > 0) {
+            pdf.addPage();
+          }
 
-        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight, null, 'FAST');
-        heightLeft -= pdf.internal.pageSize.getHeight();
+          const remainingHeight = canvas.height - currentPosition;
+          const heightToPrint = Math.min(canvas.width / aspectRatio, remainingHeight);
 
-        while (heightLeft >= 0) {
-          position = -pdf.internal.pageSize.getHeight() * page;
-          pdf.addPage();
-          pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight, null, 'FAST');
-          heightLeft -= pdf.internal.pageSize.getHeight();
-          page++;
+          pdf.addImage(
+            canvas,
+            'PNG',
+            0,
+            i === 0 ? 0 : -currentPosition,
+            pageWidth,
+            (canvas.height * pageWidth) / canvas.width,
+            null,
+            'FAST'
+          );
+
+          currentPosition += heightToPrint;
         }
       }
 
