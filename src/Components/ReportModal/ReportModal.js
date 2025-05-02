@@ -12,16 +12,20 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
       // Wait for charts to render
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const chartsContainer = document.querySelector(".chartsGrid");
+      const contentToCapture = document.getElementById(
+        activeTab === "admin" ? "adminPreview" : "analyticsRef"
+      );
 
-      if (chartsContainer) {
-        const canvas = await html2canvas(chartsContainer, {
+      if (contentToCapture) {
+        const canvas = await html2canvas(contentToCapture, {
           scale: 2,
           useCORS: true,
           allowTaint: true,
           logging: false,
           onclone: (clonedDoc) => {
-            const element = clonedDoc.querySelector(".chartsGrid");
+            const element = clonedDoc.getElementById(
+              activeTab === "admin" ? "adminPreview" : "analyticsRef"
+            );
             if (element) {
               element.style.width = '100%';
               element.style.height = 'auto';
@@ -38,7 +42,7 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
 
         // Create a download link
         const link = document.createElement('a');
-        link.download = `analytics_charts_${new Date().toISOString().split("T")[0]}.png`;
+        link.download = `${activeTab}_report_${new Date().toISOString().split("T")[0]}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
         onClose();
