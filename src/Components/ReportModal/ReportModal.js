@@ -45,9 +45,9 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
         link.download = `${activeTab}_report_${new Date().toISOString().split("T")[0]}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
-      onClose();
-    } catch (error) {
-      console.error("Error generating report:", error);
+        onClose();
+      } catch (error) {
+        console.error("Error generating report:", error);
     }
   };
 
