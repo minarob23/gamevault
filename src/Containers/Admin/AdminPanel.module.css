@@ -1239,11 +1239,13 @@
 
 .gamePrice {
   font-family: "GT Medium", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
   background: linear-gradient(135deg, #9553ff 0%, #c173ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
+  margin: 0.5rem 0;
 }
 
 .stockStatus {
