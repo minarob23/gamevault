@@ -1,0 +1,67 @@
+
+Object {}
+Cannot read properties of undefined (reading '8')
+Cannot read properties of undefined (reading 'map')
+Cannot read properties of undefined (reading '8')
+Cannot read properties of undefined (reading 'map')
+The above error occurred in the <Filters> component:
+
+    at Filters (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:4444:5)
+    at div
+    at div
+    at VisualElementHandler (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:118860:38)
+    at MotionComponent (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:118760:20)
+    at AnimatedPage (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:10015:5)
+    at section
+    at Browse (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:10227:5)
+    at Routes (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:81318:5)
+    at PresenceChild (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:115621:21)
+    at AnimatePresence (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:115785:21)
+    at App (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:1993:92)
+    at Router (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:81251:15)
+    at BrowserRouter (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:80060:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+
+at Filters (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:4444:5)
+at div
+at div
+at VisualElementHandler (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:118860:38)
+at MotionComponent (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:118760:20)
+at AnimatedPage (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:10015:5)
+at section
+at Browse (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:10227:5)
+at Routes (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:81318:5)
+at PresenceChild (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:115621:21)
+at AnimatePresence (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:115785:21)
+at App (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:1993:92)
+at Router (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:81251:15)
+at BrowserRouter (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:80060:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+at t.value (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
+The above error occurred in the <Grid> component:
+
+    at Grid (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:5062:5)
+    at div
+    at div
+    at div
+    at VisualElementHandler (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:118860:38)
+    at MotionComponent (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:118760:20)
+    at AnimatedPage (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:10015:5)
+    at section
+    at Browse (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:10227:5)
+    at Routes (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:81318:5)
+    at PresenceChild (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:115621:21)
+    at AnimatePresence (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:115785:21)
+    at App (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:1993:92)
+    at Router (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:81251:15)
+    at BrowserRouter (https://6a9b82b0-50de-4bcb-a22c-b3f19cd4d179-00-aammtnjkj1g5.picard.replit.dev/game-ecommerce-store/static/js/bundle.js:80060:5)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
