@@ -36,7 +36,7 @@ const Grid = props => {
 
     return (
     <>
-          <div className={styles.reviews} style={{ display: reviewDisplay && (!shownGames || shownGames.length === 0) ? "flex" : "none" }}>
+          <div className={styles.reviews} style={{ display: reviewDisplay && (!shownGames || (shownGames && shownGames.length === 0)) ? "flex" : "none" }}>
               <h2>There are no reviews yet!</h2>
               <h3>You can add some, soon.</h3>
           </div>
@@ -53,12 +53,12 @@ const Grid = props => {
               />
             ))}
           </div>
-          <div className={styles.reviews} style={{ display: !reviewDisplay && (!shownGames || shownGames.length === 0) ? "flex" : "none" }}>
+          <div className={styles.reviews} style={{ display: !reviewDisplay && (!shownGames || (shownGames && shownGames.length === 0)) ? "flex" : "none" }}>
               <h2>{currentFilter === "Wishlist" ? "There are no wishlists yet!" : "There are no ratings yet!"}</h2>
               <h3>You can add some, soon.</h3>
           </div>
           <div className={styles.gridContainer} style={{ display: reviewDisplay ? "none" : "grid" }} id="gridContainer">
-            {searching === false ? cartDisplayed ? shownGames.map((game, i) => {
+            {searching === false ? cartDisplayed ? shownGames && shownGames.map((game, i) => {
                 if (i <= 7) {
                     return <Card 
                     game={game} 
@@ -71,7 +71,7 @@ const Grid = props => {
                   />
                 }
                 return null;
-            }) : shownGames.map((game, i) => {
+            }) : shownGames && shownGames.map((game, i) => {
                 return <Card 
                          game={game} 
                          key={game.name} 
@@ -81,7 +81,7 @@ const Grid = props => {
                          handleSelectGame={handleSelectGame}
                          hoverState={hoverState}
                        />
-            }) : shownGames.map((game, i) => {
+            }) : shownGames && shownGames.map((game, i) => {
                 if (game.name.toLowerCase().includes(search.toLowerCase())) {
                     return <Card 
                              game={game} 
