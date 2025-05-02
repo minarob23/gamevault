@@ -813,7 +813,7 @@ const AdminPanel = () => {
                         {game.name}
                       </span>
                     </td>
-                    <td>{game.price}</td>
+                    <td style={{ color: '#4CAF50', fontWeight: 'bold' }}>${game.price}</td>
                     <td>{game.genre}</td>
                     <td>{game.platforms || "N/A"}</td>
                     <td>{game.publishers || "N/A"}</td>
