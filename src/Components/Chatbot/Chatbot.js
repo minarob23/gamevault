@@ -24,7 +24,7 @@ const Chatbot = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const initChatbot = () => {
-      const token = localStorage.getItem('auth-token'); //token is unused, but removing it would require changes to the useEffect
+      // Initialize chatbot if needed
     };
     initChatbot();
   }, []);

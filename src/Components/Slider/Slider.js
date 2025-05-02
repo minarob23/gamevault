@@ -1,5 +1,5 @@
 import styles from './Slider.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
@@ -10,8 +10,6 @@ const Slider = props => {
     selectedGame,
     setSelectedGame,
     allGames,
-    incrementCarousel,
-    decrementCarousel,
     carouselState,
     setCarouselState,
     hoverState,
