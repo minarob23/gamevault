@@ -1,0 +1,424 @@
+.payment {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #1e0f3d, #150d29);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.payment::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8467f3, #c173ff);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #8467f3 0%, #c173ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "GT Bold";
+}
+
+.form h2 {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #9553ff 0%, #c173ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #9553ff;
+  box-shadow: 0 0 0 2px rgba(149, 83, 255, 0.2);
+}
+
+.form button {
+  background: linear-gradient(135deg, #9553ff 0%, #c173ff 100%);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(149, 83, 255, 0.3);
+}
+
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(149, 83, 255, 0.4);
+}
+
+.cardTypes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.paymentTitle {
+  font-family: "GT Ultrabold";
+  font-size: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.secureIcons {
+  font-size: 1.5rem;
+}
+
+.cartItem span {
+  font-family: "GT Walsheim Pro";
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.form input {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #8467f3;
+  box-shadow: 0 0 0 2px rgba(132, 103, 243, 0.2);
+}
+
+.cardDetails {
+  display: flex;
+  gap: 1rem;
+}
+
+.cardDetails input {
+  flex: 1;
+}
+
+.form button {
+  padding: 1rem;
+  background: linear-gradient(135deg, #8467f3 0%, #c173ff 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(132, 103, 243, 0.3);
+}
+
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(132, 103, 243, 0.4);
+}
+
+.success {
+  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.successTitle {
+  font-family: "GT Walsheim Pro", sans-serif;
+  font-size: 3rem;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.thankYou {
+  font-family: "GT Medium", sans-serif;
+  font-size: 1.5rem;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes colorPulse {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+.validationModal {
+  background: linear-gradient(145deg, #2c1654, #1a0f29);
+  border: 2px solid rgba(255, 107, 107, 0.3);
+}
+
+.validationModal h2 {
+  color: #FF6B6B;
+  margin-bottom: 1rem;
+}
+
+.closeModalButton {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.closeModalButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.feedbackModal {
+  background: linear-gradient(145deg, #1e0f3d, #150d29);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 500px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback {
+  text-align: center;
+  padding: 2rem;
+}
+
+.feedback h2 {
+  font-family: "GT Bold", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #8467f3 0%, #c173ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.successMessage {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-family: "GT Medium", sans-serif;
+  animation: fadeIn 0.3s ease-in;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.successMessage {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border-radius: 10px;
+  font-family: "GT Medium", sans-serif;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.feedbackInput {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-family: "GT Regular", sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.feedbackInput:focus {
+  outline: none;
+  border-color: #8467f3;
+  box-shadow: 0 0 0 2px rgba(132, 103, 243, 0.2);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #8467f3 0%, #c173ff 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-family: "GT Bold", sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(132, 103, 243, 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cartSummary {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cartSummary h3 {
+  margin-bottom: 1.5rem;
+  font-family: "GT Walsheim Pro";
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #00bcd4 0%, #2196f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Added gap between items */
+  padding: 1rem; /* Reduced padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cartItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.cartItem:last-child {
+  border-bottom: none;
+}
+
+.gameImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gameInfo {
+  flex: 1; /* Allow game info to take up remaining space */
+}
+
+.gameName {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-family: "GT Bold";
+  color: #8467f3;
+  font-size: 1.1rem;
+}
+
+.stock {
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.stock.inStock {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    border: none;
+}
+
+.stock.outOfStock {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.totalAmount {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+  text-align: right;
+  font-weight: bold;
+}

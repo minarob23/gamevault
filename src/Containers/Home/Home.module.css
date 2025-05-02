@@ -1,0 +1,290 @@
+/* Home.module.css */
+/* Font Face Definitions */
+@font-face {
+  font-family: 'GT Regular';
+  src: url('../../Resources/fonts/walsheim/GTWalsheimPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Medium';
+  src: url('../../Resources/fonts/walsheim/GTWalsheimPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Bold';
+  src: url('../../Resources/fonts/walsheim/GTWalsheimPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Rest of your existing CSS */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.overlap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0f1011;
+  z-index: 10;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100vw;
+}
+
+.parent * {
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.careers {
+  color: #45c1bc;
+  font-family: "GT Medium";
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 630px;
+  height: 240px;
+  box-sizing: border-box;
+  padding: 22px 35px 55px 50px;
+  border-radius: 30px;
+  z-index: 6;
+  backdrop-filter: blur(8px);
+}
+
+.buttons {
+  display: flex;
+  position: relative;
+  width: 630px;
+  height: 70px;
+  box-sizing: border-box;
+  padding: 14px 20px 15px 20px;
+  margin-top: 15px;
+  border-radius: 30px;
+  z-index: 6;
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta {
+  background-color: #fff;
+  border: 1px transparent;
+  border-radius: 18px;
+  color: black;
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  /* Added for better alignment */
+  gap: 12px;
+  font-family: "GT Medium";
+  font-size: 16px;
+  transition: 0.3s all;
+  cursor: pointer;
+  min-width: 150px;
+  /* Added to prevent wrapping */
+  white-space: nowrap;
+  /* Prevents text wrapping */
+}
+
+.cta:hover {
+  background-color: #45c1bc;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.splash {
+  animation: float 6s ease-in-out infinite;
+}
+
+.cta * {
+  pointer-events: none;
+}
+
+.ctaSVG {
+  height: 18px;
+  width: 18px;
+}
+
+.buttons::after,
+.splash::after {
+  content: "";
+  position: absolute;
+  border-radius: 30px;
+  inset: 0.01%;
+  height: inherit;
+  width: inherit;
+  z-index: -1;
+  background-color: white;
+  opacity: 0.285;
+}
+
+.intro {
+  color: white;
+  font-family: "GT Regular";
+  font-size: 15px;
+  opacity: 1;
+}
+
+.splash h1 {
+  font-family: "GT Bold";
+  font-size: 90px;
+  color: white;
+}
+
+.video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  background-attachment: fixed;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-align: center;
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+  font-family: "GT Bold";
+}
+
+.modal p {
+  margin-bottom: 20px;
+  font-family: "GT Regular";
+}
+
+.modal button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #45c1bc;
+  color: white;
+  font-family: "GT Medium";
+}
+
+.modal button:hover {
+  background-color: #3aa8a3;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .splash,
+  .buttons {
+    width: 80%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .splash {
+    width: 450px;
+  }
+
+  .buttons {
+    width: 276px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons button {
+    width: 100%;
+    gap: 20px;
+    padding-left: 75px;
+  }
+
+  .splash {
+    height: 225px;
+  }
+
+  .splash h1 {
+    font-size: 56px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .splash {
+    width: 276px;
+    padding: 10px 35px 10px 35px;
+    height: 60px;
+    justify-content: center;
+  }
+
+  .splash h1 {
+    font-size: 36px;
+  }
+
+  .splash p {
+    display: none;
+  }
+}

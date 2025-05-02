@@ -1,0 +1,220 @@
+
+.feedbackPage {
+  padding: 2rem;
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-family: 'GTWalsheimPro-Bold', sans-serif;
+  background: linear-gradient(135deg, #9553ff 0%, #c173ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.backButton {
+  background: linear-gradient(135deg, #9553ff 0%, #c173ff 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'GTWalsheimPro-Medium', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(149, 83, 255, 0.3);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.deleteAllButton {
+  background: linear-gradient(135deg, #ff4d4d 0%, #ff1a1a 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'GTWalsheimPro-Medium', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.deleteAllButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 26, 26, 0.3);
+}
+
+.refreshButtonCircle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refreshIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.refreshButtonCircle:hover .refreshIcon {
+  transform: rotate(180deg);
+}
+
+.themeToggle {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.themeToggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(149, 83, 255, 0.3);
+}
+
+.themeToggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(149, 83, 255, 0.2);
+}
+
+.feedbackList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedbackItem {
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-family: 'GTWalsheimPro-Medium', sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.feedbackItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(149, 83, 255, 0.15);
+  border-color: #9553ff;
+}
+
+.feedbackContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #ff4d4d 0%, #ff1a1a 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'GTWalsheimPro-Medium', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.deleteButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 26, 26, 0.3);
+}
+
+.feedbackTime {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.feedbackDate {
+  color: #9553ff;
+  font-size: 0.9rem;
+  font-family: 'GTWalsheimPro-Medium', sans-serif;
+  background: rgba(149, 83, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.feedbackTimeText {
+  color: #666;
+  font-size: 0.9rem;
+  font-family: 'GTWalsheimPro-Medium', sans-serif;
+  padding: 4px 8px;
+  background: rgba(102, 102, 102, 0.1);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.feedbackContent {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.feedbackItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #9553ff;
+}
+
+.noFeedback {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-style: italic;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .feedbackItem {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,158 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: url('../../Resources/image/game_vault_bg.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.formCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formCard h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.formCard p {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.formGroup input {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+.submitBtn {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(132, 103, 243, 0.4);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+
+
+.prediction {
+  margin-top: 30px;
+  text-align: center;
+  padding: 35px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.prediction h2 {
+  color: #FF6B6B;
+  font-size: 2.4rem;
+  font-family: "GT Bold";
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(255, 107, 107, 0.2);
+  letter-spacing: 1px;
+}
+
+.predictionValue {
+  font-size: 48px;
+  margin-top: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(132, 103, 243, 0.3);
+  border-radius: 50%;
+  border-top-color: #8467f3;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

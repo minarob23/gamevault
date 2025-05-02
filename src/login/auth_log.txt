@@ -1,0 +1,98 @@
+2025-03-11 03:08:32: Request received
+2025-03-11 03:08:32: Request data: {"action":"login","username":"owner@gmail.com","password":"owner1100"}
+2025-03-11 03:08:32: Database connected
+2025-03-11 03:08:32: Response: {"success":false,"message":"Invalid username or password","data":[]}
+2025-03-11 03:08:33: Request received
+2025-03-11 03:08:33: Request data: {"action":"login","username":"owner@gmail.com","password":"owner1100"}
+2025-03-11 03:08:33: Database connected
+2025-03-11 03:08:33: Response: {"success":false,"message":"Invalid username or password","data":[]}
+2025-03-11 03:08:54: Request received
+2025-03-11 03:08:54: Request data: {"action":"login","username":"admin@gmail.com","password":"admin111"}
+2025-03-11 03:08:54: Database connected
+2025-03-11 03:08:54: Response: {"success":true,"message":"Login successful","data":{"id":7,"fullName":"admin","email":"admin@gmail.com","token":"9df4276a58ade3c5b7e9ff6a6db76c48114f3d890909564b1adf85dd844232cb_7"}}
+2025-03-11 03:13:08: Request received
+2025-03-11 03:13:08: Request data: {"action":"register","fullName":"Ahmed","email":"ahmed@gmail.com","password":"11112","confirmPassword":"11112"}
+2025-03-11 03:13:08: Database connected
+2025-03-11 03:13:08: Registration attempt with data: {"action":"register","fullName":"Ahmed","email":"ahmed@gmail.com","password":"11112","confirmPassword":"11112"}
+2025-03-11 03:13:08: Registration successful for: ahmed@gmail.com
+2025-03-11 03:13:08: Response: {"success":true,"message":"Registration successful","data":{"username":"ahmed@gmail.com"}}
+2025-03-11 03:13:39: Request received
+2025-03-11 03:13:39: Request data: {"action":"login","username":"Ahmed@gmail.com","password":"11112"}
+2025-03-11 03:13:39: Database connected
+2025-03-11 03:13:39: Response: {"success":true,"message":"Login successful","data":{"id":8,"fullName":"Ahmed","email":"ahmed@gmail.com","token":"4dc63221f3de35cc73daf9717ba887f6c3dcff31492a049ce5ec45de4f7d0fc7_8"}}2025-03-17 17:28:47: Invalid action received
+2025-03-17 17:28:47: Request received
+2025-03-17 17:28:47: Request data: {"action":"register","email":"f","password":"f","fullName":"f","confirmPassword":"f"}
+2025-03-17 17:28:47: Registration successful for: f
+2025-03-17 17:28:57: Invalid action received
+2025-03-17 17:28:57: Request received
+2025-03-17 17:28:57: Request data: {"action":"login","email":"f","password":"f"}
+2025-03-17 17:28:57: Login successful for: f
+2025-03-17 20:45:13: Invalid action received
+2025-03-17 20:45:15: Invalid action received
+2025-03-17 20:57:36: Invalid action received
+2025-03-17 20:57:36: Request received
+2025-03-17 20:57:36: Request data: {"action":"login","email":"few","password":"ewf"}
+2025-03-17 20:57:36: Login failed: Invalid credentials for few
+2025-03-17 20:57:51: Invalid action received
+2025-03-17 20:57:51: Request received
+2025-03-17 20:57:51: Request data: {"action":"register","email":"mina2@gmail.com","password":" mina2","fullName":"mina2","confirmPassword":" mina2"}
+2025-03-17 20:57:52: Registration successful for: mina2@gmail.com
+2025-03-17 20:58:01: Invalid action received
+2025-03-17 20:58:01: Request received
+2025-03-17 20:58:01: Request data: {"action":"login","email":"mina2@gmail.com","password":" mina2"}
+2025-03-17 20:58:01: Login successful for: mina2@gmail.com
+2025-04-17 18:32:47: Invalid action received
+2025-04-17 18:32:47: Invalid action received
+2025-04-17 18:36:55: Invalid action received
+2025-04-17 18:37:00: Invalid action received
+2025-04-17 18:37:00: Invalid action received
+2025-04-17 18:37:03: Invalid action received
+2025-04-17 18:37:04: Invalid action received
+2025-04-17 18:39:46: Invalid action received
+2025-04-17 18:39:46: Invalid action received
+2025-04-17 18:39:53: Invalid action received
+2025-04-17 18:39:53: Request received
+2025-04-17 18:39:53: Request data: {"action":"login","email":"f","password":"f"}
+2025-04-17 18:39:53: Login failed: Invalid credentials for f
+2025-04-17 18:39:59: Invalid action received
+2025-04-17 18:39:59: Request received
+2025-04-17 18:39:59: Request data: {"action":"login","email":"d","password":"d"}
+2025-04-17 18:39:59: Login failed: Invalid credentials for d
+2025-04-17 18:40:04: Request received
+2025-04-17 18:40:04: Request data: {"action":"register","email":"d","password":"d","fullName":"d","confirmPassword":"d"}
+2025-04-17 18:40:04: Registration successful for: d
+2025-04-17 18:40:06: Invalid action received
+2025-04-17 18:40:06: Request received
+2025-04-17 18:40:06: Request data: {"action":"login","email":"d","password":"d"}
+2025-04-17 18:40:06: Login successful for: d
+2025-04-17 18:43:00: Invalid action received
+2025-04-17 18:43:00: Request received
+2025-04-17 18:43:00: Request data: {"action":"register","email":"mina1@gmail.com","password":"mina","fullName":"Mina","confirmPassword":"mina"}
+2025-04-17 18:43:00: Registration successful for: mina1@gmail.com
+2025-04-17 18:43:22: Invalid action received
+2025-04-17 18:43:22: Request received
+2025-04-17 18:43:22: Request data: {"action":"login","email":"mina1@gmail.com","password":"mina"}
+2025-04-17 18:43:22: Login successful for: mina1@gmail.com
+2025-04-18 00:28:50: Invalid action received
+2025-04-18 00:28:50: Request received
+2025-04-18 00:28:50: Request data: {"action":"login","email":"mina","password":"mina123"}
+2025-04-18 00:28:50: Login failed: Invalid credentials for mina
+2025-04-18 00:28:56: Invalid action received
+2025-04-18 00:28:56: Request received
+2025-04-18 00:28:56: Request data: {"action":"register","email":"1","password":"1","fullName":"1","confirmPassword":"1"}
+2025-04-18 00:28:57: Registration successful for: 1
+2025-04-18 00:28:58: Request received
+2025-04-18 00:28:58: Request data: {"action":"login","email":"1","password":"1"}
+2025-04-18 00:28:58: Login successful for: 1
+2025-04-18 00:36:29: Invalid action received
+2025-04-18 00:36:29: Request received
+2025-04-18 00:36:29: Request data: {"action":"login","email":"1","password":"1"}
+2025-04-18 00:36:29: Login successful for: 1
+2025-05-02 01:44:39: Invalid action received
+2025-05-02 01:44:39: Request received
+2025-05-02 01:44:39: Request data: {"action":"login","email":"d","password":"d"}
+2025-05-02 01:44:39: Login successful for: d
+2025-05-02 02:03:40: Invalid action received
+2025-05-02 02:03:40: Request received
+2025-05-02 02:03:40: Request data: {"action":"login","email":"d","password":"d"}
+2025-05-02 02:03:40: Login successful for: d

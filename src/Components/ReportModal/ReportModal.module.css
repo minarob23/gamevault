@@ -1,0 +1,177 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.tabButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  background: #444;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.tabButton:hover {
+  background: #555;
+}
+
+.activeTab {
+  background: #92f;
+}
+
+.activeTab:hover {
+  background: #a64dff;
+}
+
+.previewContainer {
+  margin: 1rem 0;
+}
+
+.previewSection {
+  margin-bottom: 2rem;
+}
+
+.previewSection h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.saveButton, .closeButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.saveButton {
+  background: #92f;
+  color: white;
+}
+
+.closeButton {
+  background: #666;
+  color: white;
+}
+
+.adminPreview {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  color: black;
+  max-width: 210mm;
+  margin: 0 auto;
+}
+
+.reportTitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.reportDate {
+  text-align: right;
+  margin-bottom: 2rem;
+  color: #666;
+  font-size: 14px;
+}
+
+.dashboardStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.statCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.statCard p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #92f;
+}
+
+.gamesTable {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.gamesTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gamesTable th,
+.gamesTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.gamesTable th {
+  background: #2a2a2a;
+  color: white;
+  font-weight: 600;
+}
+
+.gamesTable tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.notificationList .cancelButton {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.75rem 2rem;
+  text-align: center;
+}
