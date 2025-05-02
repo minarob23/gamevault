@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styles from "./ReportModal.module.css";
 import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import AnalyticsDashboard from "../Analytics/AnalyticsDashboard";
 
 const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
@@ -17,6 +18,7 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
       );
 
       if (contentToCapture) {
+        const pdf = new jsPDF('p', 'pt', 'a4');
         const canvas = await html2canvas(contentToCapture, {
           scale: 2,
           useCORS: true,
@@ -40,11 +42,13 @@ const ReportModal = ({ onClose, adminDashboardRef, allGames }) => {
           }
         });
 
-        // Create a download link
-        const link = document.createElement('a');
-        link.download = `${activeTab}_report_${new Date().toISOString().split("T")[0]}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        const imgData = canvas.toDataURL('image/png');
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`${activeTab}_report_${new Date().toISOString().split("T")[0]}.pdf`);
         onClose();
       }
     } catch (error) {
