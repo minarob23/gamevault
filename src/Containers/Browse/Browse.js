@@ -40,8 +40,10 @@ export default function Browse({
 
   useEffect(() => {
     // Set browsing state when component mounts
-    handleBrowse();
-  }, []); // Empty dependency array since we only want this to run once
+    if (!browsing) {
+      handleBrowse();
+    }
+  }, [browsing, handleBrowse]); // Add dependencies to prevent infinite loop
 
   const [chatbotOpen, setChatbotOpen] = useState(false);
 
