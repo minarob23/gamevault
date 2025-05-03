@@ -215,13 +215,12 @@ const handleSelectGame = (e) => {
 }
 
 const handleLike = (e) => {
-  let handledLike = allGames.map((game, i) => {
-    if (e.target.id === i) {
-      game.isLiked = !game.isLiked
-      return game
-    } else {
-      return game;
+  const targetId = parseInt(e.target.id);
+  let handledLike = allGames.map(game => {
+    if (game.id === targetId) {
+      return { ...game, isLiked: !game.isLiked };
     }
+    return game;
   });
 
   setAllGames(handledLike);
