@@ -225,6 +225,7 @@ const handleLike = (e) => {
   });
 
   setAllGames(handledLike);
+  localStorage.setItem('games', JSON.stringify(handledLike));
 }
 
 const clearFilter = () => {
