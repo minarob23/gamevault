@@ -258,7 +258,7 @@ const VGSalesPredict = () => {
           </div>
 
           <button type="submit" className={styles.submitBtn}>
-            Predict Sales
+            Predict Sale
           </button>
           {errors.submit && (
             <div className={styles.error} style={{ marginTop: "10px" }}>
@@ -275,7 +275,7 @@ const VGSalesPredict = () => {
         ) : (
           prediction !== null && (
             <div className={styles.prediction}>
-              <h2>Predicted Sales</h2>
+              <h2>Predicted Sale</h2>
               <p className={styles.predictionValue}>{prediction.toFixed(2)}</p>
             </div>
           )
