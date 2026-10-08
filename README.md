@@ -1,29 +1,35 @@
-# Game-Store
+# 🎮 GameVault: AI-Driven Video Game Analytics & Recommendation Prototype
 
-Game-Store is a small project that provides a browsable collection and lightweight storefront-style interface for video games, demonstrated and explored through interactive Jupyter Notebooks and a simple web frontend. The repository contains data exploration notebooks, example UI code, and supporting scripts that show how game data can be analyzed, presented, and prototyped.
+An applied machine learning and data science exploration repository analyzing global video game industry trends, sales dynamics, and personalized recommendation workflows. Validated as a Bachelor's Capstone Project accredited by **The Open University, United Kingdom**.
 
-Key highlights
+---
 
-- Interactive notebooks: The majority of the repository is Jupyter Notebooks that analyze game datasets, visualize trends, and demonstrate features and workflows.
-- Web UI: Frontend code (JavaScript and CSS) provides simple examples of a storefront-style UI for browsing and previewing games.
-- Multi-language examples: Small Python and PHP scripts are included for data processing and integration examples.
+## 📌 Project Overview
 
-Typical uses
+GameVault bridges data science, machine learning, and interactive prototyping to explore game metadata, player ratings, and historical sales trends. The repository contains extensive data analysis pipelines, predictive modeling workflows, and a storefront UI prototype.
 
-- Explore game datasets and visualizations interactively in the notebooks.
-- Use the frontend examples as a starting point for a simple game catalog or prototype storefront.
-- Reuse data-processing snippets to prepare or analyze game metadata.
+---
 
-Tech stack
+## 🚀 Key Highlights & Architecture
 
-- Jupyter Notebook (data exploration and demos)
-- JavaScript + CSS (frontend examples)
-- Python, PHP (small scripts and examples)
+### 1. 📊 Exploratory Data Analysis & Feature Engineering
+- Processed, normalized, and engineered features across multi-dimensional video game datasets (genres, platforms, publisher metrics, global sales).
+- In-depth statistical analysis and trend visualizations implemented across interactive Jupyter Notebooks.
 
-Contributing
+### 2. 🤖 Predictive Modeling (XGBoost / LightGBM)
+- Evaluated regression algorithms (**XGBoost**, **LightGBM**, and Scikit-Learn baselines) to forecast sales velocity and market reception.
+- Conducted hyperparameter tuning, residual analysis, and model validation using cross-validation metrics (RMSE, MAE, R²).
 
-Contributions are welcome — if you'd like to add features, notebooks, or improvements to the UI, please open an issue or a pull request.
+### 3. 💬 NLP Intent-Classification Prototype
+- Prototyped natural language search and intent matching algorithms to recommend games based on semantic user queries.
 
-License
+### 4. 🖥️ Interactive Web Storefront Prototype
+- Lightweight frontend interface (HTML, CSS, JavaScript) demonstrating dynamic game catalog browsing, metric filtering, and storefront presentation.
 
-Please check the repository for a LICENSE file. If none is present, add a LICENSE to clarify reuse terms.
+---
+
+## 🛠️ Technology Stack
+
+- **Data Science & ML:** Python, Jupyter Notebooks, Pandas, NumPy, Scikit-Learn, XGBoost, LightGBM, Matplotlib, Seaborn.
+- **Prototyping & Web UI:** JavaScript (ES6+), CSS3, HTML5.
+- **Academic Accreditation:** Arab Open University & The Open University (UK).
